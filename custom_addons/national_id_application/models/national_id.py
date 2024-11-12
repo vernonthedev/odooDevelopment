@@ -26,15 +26,22 @@ class NationalIDApplication(models.Model):
         ('rejected', 'Rejected'),
     ], string="Status", default='draft')
 
-    # To automatically post a message when the state changes
+    # automatically post a message when the state changes
     def write(self, vals):
-        # Check if the state is being updated
-        if 'state' in vals:
-            state_before = self.state
-            state_after = vals['state']
-            if state_before != state_after:
-                self.message_post(
-                    body=f"State changed from {state_before} to {state_after}.",
-                    subtype_id=self.env.ref('mail.mt_comment').id
-                )
+        changes = []
+        for field in vals:
+            old_value = getattr(self, field)  # Current value
+            new_value = vals.get(field)  # New value
+
+            if old_value != new_value:
+                changes.append(f"Field '{field}' changed from '{old_value}' to '{new_value}'")
+
+        # If changes are made, post them to the chatter
+        if changes:
+            change_details = "\n".join(changes)
+            self.message_post(
+                body=f"Changes made by {self.env.user.name}:\n{change_details}",
+                subtype_id=self.env.ref('mail.mt_comment').id
+            )
+
         return super(NationalIDApplication, self).write(vals)
