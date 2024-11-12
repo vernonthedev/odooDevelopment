@@ -1,27 +1,12 @@
 <odoo>
-    <record id="view_national_id_application_form" model="ir.ui.view">
-        <field name="name">national.id.application.form</field>
-        <field name="model">national.id.application</field>
-        <field name="arch" type="xml">
-            <form string="National ID Application">
-                <sheet>
-                    <group>
-                        <field name="applicant_name"/>
-                        <field name="applicant_dob"/>
-                        <field name="applicant_email"/>
-                        <field name="applicant_phone"/>
-                        <field name="applicant_address"/>
-                        <field name="picture_attachment" widget="image"/>
-                        <field name="lc_reference_letter" widget="binary"/>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
-
     <record id="action_national_id_application" model="ir.actions.act_window">
         <field name="name">National ID Application</field>
         <field name="res_model">national.id.application</field>
         <field name="view_mode">form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Apply For A New National ID
+            </p>
+        </field>
     </record>
 </odoo>

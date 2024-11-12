@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem id="menu_national_id_root"
+              name="National ID Application System"/>
+    <menuitem id="menu_frontdesk"
+              name="Front Desk"
+              parent="menu_national_id_root"/>
+    <menuitem id="menu_create_national_id"
+              name="Create National ID"
+              parent="menu_frontdesk"
+              action="action_national_id_application"/>
+</odoo>
