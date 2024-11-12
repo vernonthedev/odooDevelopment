@@ -6,7 +6,12 @@
               name="Front Desk"
               parent="menu_national_id_root"/>
     <menuitem id="menu_create_national_id"
-              name="Views National ID Applicants"
+              name="View National ID Applicants"
               parent="menu_frontdesk"
               action="action_national_id_application"/>
+      <menuitem id="menu_id_creation"
+              name="Create National ID Applicant"
+              parent="menu_frontdesk"
+              action="action_national_id_creation"/>
+
 </odoo>

@@ -4,7 +4,10 @@
     'category': 'Custom',
     'author': 'Masamba Vernon',
     'summary': 'A module to handle national ID applications',
-    'depends': ['base'],
+    'depends': [
+        'base',
+        'mail'
+    ],
     'data': [
         'security/ir.model.access.csv',
         'views/national_id_form.xml',

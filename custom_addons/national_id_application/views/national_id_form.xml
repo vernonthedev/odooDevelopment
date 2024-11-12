@@ -42,6 +42,11 @@
                         <button string="Cancel" class="btn-secondary" special="cancel"/>
                     </footer>
                 </sheet>
+<!--                Add the logging dependencies to the ui-->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user" />
+                    <field name="message_ids" />
+                </div>
             </form>
         </field>
     </record>
@@ -52,6 +57,19 @@
         <field name="res_model">national.id.application</field>
         <field name="view_mode">list,form</field>
         <field name="view_id" ref="view_national_id_application_list"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Apply for a new National ID.
+            </p>
+        </field>
+    </record>
+
+    <!-- Action to Create National ID Application with a form view -->
+    <record id="action_national_id_creation" model="ir.actions.act_window">
+        <field name="name">National ID Applications</field>
+        <field name="res_model">national.id.application</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_national_id_application_form"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Apply for a new National ID.
