@@ -16,8 +16,8 @@ class NationalIDApplication(models.Model):
     mothers_name = fields.Char(string="Mother's Name",tracking=True)
     address = fields.Text(string="Address",tracking=True)
     date_of_birth = fields.Date(string="Date of Birth",tracking=True)
-    picture = fields.Binary(string="Picture",tracking=True)
-    lc_reference_letter = fields.Binary(string="LC Reference Letter",tracking=True)
+    picture = fields.Binary(string="Picture")
+    lc_reference_letter = fields.Binary(string="LC Reference Letter")
 
     # Fields to track the status of the application
     state = fields.Selection([
@@ -25,3 +25,16 @@ class NationalIDApplication(models.Model):
         ('approved', 'Approved'),
         ('rejected', 'Rejected'),
     ], string="Status", default='draft')
+
+    # To automatically post a message when the state changes
+    def write(self, vals):
+        # Check if the state is being updated
+        if 'state' in vals:
+            state_before = self.state
+            state_after = vals['state']
+            if state_before != state_after:
+                self.message_post(
+                    body=f"State changed from {state_before} to {state_after}.",
+                    subtype_id=self.env.ref('mail.mt_comment').id
+                )
+        return super(NationalIDApplication, self).write(vals)

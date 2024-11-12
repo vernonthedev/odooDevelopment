@@ -41,12 +41,14 @@
                         <button string="Reject" class="btn-danger" invisible="state in ('approved', 'rejected')"/>
                         <button string="Cancel" class="btn-secondary" special="cancel"/>
                     </footer>
+
+                    <!-- Chatter Section -->
+                <notebook>
+                    <page string="Changes Made">
+                        <field name="message_ids" widget="mail_thread" options="{'no_open': True}"/>
+                    </page>
+                </notebook>
                 </sheet>
-<!--                Add the logging dependencies to the ui-->
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" groups="base.group_user" />
-                    <field name="message_ids" />
-                </div>
             </form>
         </field>
     </record>
