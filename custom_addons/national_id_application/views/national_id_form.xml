@@ -24,13 +24,13 @@
             <form string="National ID Application">
                 <sheet>
                     <group>
+                         <field name="picture" widget="image" class="oe_avatar"/>
                         <field name="first_name" />
                         <field name="last_name" />
                         <field name="email" />
                         <field name="phone" />
                         <field name="address" />
                         <field name="date_of_birth" />
-                        <field name="picture" />
                         <field name="lc_reference_letter" />
                     </group>
                     <group>
