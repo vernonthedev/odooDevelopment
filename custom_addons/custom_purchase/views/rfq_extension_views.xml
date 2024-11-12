@@ -1,0 +1,26 @@
+<!-- views/rfq_extension_views.xml -->
+<odoo>
+    <record id="view_purchase_order_form_inherited" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherited</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="vendor_ids" widget="many2many_tags"/>
+            </xpath>
+            <notebook position="inside">
+                <page string="Vendor Bids">
+                    <field name="bid_ids">
+                        <tree>
+                            <field name="name"/>
+                            <field name="vendor_id"/>
+                            <field name="bid_date"/>
+                            <field name="total_amount"/>
+                            <button name="action_select_as_winner" type="object" string="Select as Winner"/>
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

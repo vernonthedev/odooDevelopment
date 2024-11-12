@@ -1,0 +1,2 @@
+access_national_id_application_user,national.id.application user,model_national_id_application,base.group_user,1,1,1,1
+access_national_id_application_manager,national.id.application manager,model_national_id_application,base.group_system,1,1,1,1
