@@ -6,7 +6,7 @@
               name="Front Desk"
               parent="menu_national_id_root"/>
     <menuitem id="menu_create_national_id"
-              name="Create National ID"
+              name="Views National ID Applicants"
               parent="menu_frontdesk"
               action="action_national_id_application"/>
 </odoo>
