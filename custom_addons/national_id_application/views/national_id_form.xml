@@ -37,8 +37,8 @@
                         <field name="state" widget="statusbar" statusbar_visible="draft,approved,rejected"/>
                     </group>
                     <footer>
-                        <button string="Approve" class="btn-primary" invisible="state in ('approved', 'rejected')"/>
-                        <button string="Reject" class="btn-danger" invisible="state in ('approved', 'rejected')"/>
+                        <button name="approve_application" string="Approve" class="btn-primary" invisible="state in ('approved', 'rejected')"/>
+                        <button name="reject_application" string="Reject" class="btn-danger" invisible="state in ('approved', 'rejected')"/>
                         <button string="Cancel" class="btn-secondary" special="cancel"/>
                     </footer>
 
